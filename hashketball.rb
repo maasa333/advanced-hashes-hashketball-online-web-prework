@@ -1,6 +1,6 @@
 require 'pry'
 def game_hash
-  game_hash = {
+  {
     home: {
       team_name: "Brooklyn Nets",
       colors: ["Black", "White"],
@@ -15,7 +15,8 @@ def game_hash
           {number: 1, shoe: 19, points: 26, rebounds: 12, assists: 10, steals: 3, blocks: 8, slam_dunks: 5},
         "Jason Terry":
           {number: 31, shoe: 15, points: 19, rebounds: 2, assists: 2, steals: 4, blocks: 11, slam_dunks: 1}
-        },
+        }
+      },
     away: {
       team_name: "Charlotte Hornets",
       colors: ["Turquoise", "Purple"],
@@ -30,7 +31,6 @@ def game_hash
           {number: 8, shoe: 15, points: 33, rebounds: 3, assists: 2, steals: 1, blocks: 1, slam_dunks: 0},
         "Brendan Haywood":
           {number: 33, shoe: 15, points: 6, rebounds: 12, assists: 12, steals: 22, blocks: 5, slam_dunks: 12}
-        }
       }
     }
   }
@@ -38,9 +38,9 @@ end
 
 def num_points_scored(name)
   game_hash.each do |location, team_data|
-    team_data[:players].each do |player|
-      if player[:name] == name
-        return player[:points]
+    team_data[:players].each do |player, stats|
+      if player == name
+        return stats[:points]
      end
     end
   end
